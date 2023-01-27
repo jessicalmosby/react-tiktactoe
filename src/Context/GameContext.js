@@ -13,6 +13,7 @@ const GameProvider = ({ children }) => {
     if (!board[space].content) {
       board[space] = { space: space, content: currentPlayer };
       setCurrentPlayer(currentPlayer === 'x' ? 'o' : 'x');
+      checkWinner(board);
     }
   };
 
@@ -33,6 +34,12 @@ const GameProvider = ({ children }) => {
       {children}
     </GameContext.Provider>
   );
+};
+
+const checkWinner = (board) => {
+  if (board[0].content === board[1].content && board[1].content === board[2].content) {
+    console.log('winner');
+  }
 };
 
 const useGameContext = () => {

@@ -9,8 +9,10 @@ const GameProvider = ({ children }) => {
   const [active, setActive] = useState(true);
 
   const handleClick = (space) => {
-    board[space] = { space: space, content: currentPlayer };
-    setCurrentPlayer(currentPlayer === 'x' ? 'o' : 'x');
+    if (!board[space].content) {
+      board[space] = { space: space, content: currentPlayer };
+      setCurrentPlayer(currentPlayer === 'x' ? 'o' : 'x');
+    }
   };
 
   return (

@@ -8,6 +8,11 @@ const GameProvider = ({ children }) => {
   const [gameMessage, setGameMessage] = useState('');
   const [active, setActive] = useState(true);
 
+  const handleClick = (space) => {
+    board[space] = { space: space, content: currentPlayer };
+    setCurrentPlayer(currentPlayer === 'x' ? 'o' : 'x');
+  };
+
   return (
     <GameContext.Provider
       value={{
@@ -19,6 +24,7 @@ const GameProvider = ({ children }) => {
         setGameMessage,
         active,
         setActive,
+        handleClick,
       }}
     >
       {children}
@@ -31,7 +37,3 @@ const useGameContext = () => {
   return gameContext;
 };
 export { GameProvider, useGameContext };
-
-export function handleClick() {
-  console.log('i am being clicked');
-}

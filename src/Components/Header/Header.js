@@ -1,5 +1,12 @@
 import React from 'react';
+import { useGameContext } from '../../Context/GameContext.js';
 
 export default function Header() {
-  return <div className="header">TickTacToe</div>;
+  const { gameMessage } = useGameContext();
+
+  return (
+    <div className="header">
+      <p>{gameMessage}</p>
+    </div>
+  );
 }

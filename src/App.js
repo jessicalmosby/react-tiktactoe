@@ -5,6 +5,7 @@ import Board from './Components/Board/Board.js';
 function App() {
   return (
     <div className="App">
+      <h1>TicTacToe</h1>
       <Header />
       <Board />
     </div>
